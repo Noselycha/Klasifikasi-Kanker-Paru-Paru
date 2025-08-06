@@ -1,0 +1,10 @@
+flask
+numpy
+opencv-python
+python-dotenv
+tensorflow
+ultralytics
+google-generativeai
+requests
+pillow
+markdown
