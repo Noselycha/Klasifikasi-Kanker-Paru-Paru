@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <h2 class="mb-4">Deteksi Jenis Kanker Paru-paru</h2>
+
+    <form action="{{ url_for('predict') }}" method="POST" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="image" class="form-label">Unggah Gambar Citra Medis:</label>
+            <input class="form-control" type="file" name="image" accept="image/*" required title="Unggah gambar citra medis" placeholder="Pilih file gambar">
+        </div>
+
+        <div class="mb-3">
+    <label class="form-label">Pilih Model:</label>
+    <div class="row">
+        {% for model in models %}
+        <div class="col-md-4 mb-3">
+            <div class="card h-100 model-card" data-bs-toggle="tooltip" data-bs-placement="top" title="{{ model.description }}">
+                <div class="card-body">
+                    <input class="form-check-input me-2 model-radio" type="radio" name="model_name" 
+                           id="model_{{ loop.index }}" value="{{ model.name }}" 
+                           data-versions='{{ model.versions | tojson }}' required>
+                    <label class="form-check-label" for="model_{{ loop.index }}">{{ model.name }}</label>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- Dropdown versi -->
+<div class="mb-3" id="version-container">
+    <label for="model_version" class="form-label">Pilih Versi Model:</label>
+    <select name="model_version" id="model_version" class="form-select" required>
+        <option value="">-- Pilih Versi --</option>
+    </select>
+</div>
+
+<script>
+document.querySelectorAll('.model-radio').forEach(radio => {
+    radio.addEventListener('change', function() {
+        const versionContainer = document.getElementById('version-container');
+        const versionSelect = document.getElementById('model_version');
+        const versions = JSON.parse(this.getAttribute('data-versions'));
+
+        // Hapus opsi lama
+        versionSelect.innerHTML = '<option value="">-- Pilih Versi --</option>';
+
+        // Tambahkan opsi baru
+        versions.forEach(ver => {
+            const opt = document.createElement('option');
+            opt.value = ver;
+            opt.textContent = ver;
+            versionSelect.appendChild(opt);
+        });
+
+        // Tampilkan dropdown
+        versionContainer.style.display = 'block';
+    });
+});
+</script>
+
+
+        <button type="submit" class="btn btn-primary">Analisa Gambar</button>
+    </form>
+
+    {% if result %}
+    <div class="mt-5">
+        <h4>Hasil Prediksi: <span class="text-success">{{ result.prediction }}</span></h4>
+        <div class="card mt-3">
+            <div class="card-body">
+                <p>{{ result.explanation }}</p>
+                {% if result.gradcam %}
+                    <img src="{{ url_for('static', filename='gradcam/' + result.gradcam) }}" class="img-fluid mt-2" alt="Grad-CAM">
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+
+<script>
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+    const tooltipList = [...tooltipTriggerList].map(t => new bootstrap.Tooltip(t));
+</script>
+{% endblock %}
