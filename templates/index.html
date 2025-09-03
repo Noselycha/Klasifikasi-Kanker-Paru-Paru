@@ -1,50 +1,59 @@
-{% extends "base.html" %}
-{% block content %}
-
+{% extends "base.html" %} {% block content %}
 <section class="info-section">
-    <h2 class="section-title">Apa itu Kanker Paru-paru?</h2>
-    <p class="paragraph">
-        <strong>Kanker paru-paru</strong> adalah penyakit ketika sel-sel abnormal di paru-paru berkembang
-        secara tidak terkendali. Penyakit ini merupakan salah satu penyebab utama kematian akibat kanker di seluruh dunia.
-    </p>
+  <h2 class="section-title">Mengenal Kanker Paru-paru</h2>
+  <p class="paragraph">
+    <strong>Kanker paru-paru</strong> adalah kondisi ketika sel abnormal di
+    jaringan paru berkembang secara tidak terkendali. Penyakit ini termasuk
+    salah satu penyebab utama kematian akibat kanker di dunia dan seringkali
+    terdeteksi pada tahap lanjut.
+  </p>
 
-    <h3 class="subtitle">Jenis-Jenis Kanker Paru-paru</h3>
-
-    <div class="cancer-types">
-        <!-- NSCLC -->
-        <div class="cancer-card">
-            <img src="{{ url_for('static', filename='images/nsclc.jpg') }}" alt="NSCLC">
-            <div class="card-caption">Non-Small Cell Lung Cancer (NSCLC)</div>
-            <div class="card-overlay">
-                Jenis yang paling umum (±85% kasus), biasanya berkembang lebih lambat.
-            </div>
-        </div>
-
-        <!-- SCLC -->
-        <div class="cancer-card">
-            <img src="{{ url_for('static', filename='images/sclc.jpg') }}" alt="SCLC">
-            <div class="card-caption">Small Cell Lung Cancer (SCLC)</div>
-            <div class="card-overlay">
-                Jenis yang lebih agresif dan cepat menyebar, sering terkait dengan kebiasaan merokok.
-            </div>
-        </div>
-
-        <!-- Lainnya -->
-        <div class="cancer-card">
-            <img src="{{ url_for('static', filename='images/other_cancer.jpg') }}" alt="Lainnya">
-            <div class="card-caption">Lainnya</div>
-            <div class="card-overlay">
-                Termasuk kanker paru metastasis dari organ lain dan jenis langka lainnya.
-            </div>
-        </div>
+  <h3 class="subtitle">Jenis Utama Kanker Paru-paru</h3>
+  <div class="cancer-types">
+    <div class="cancer-card">
+      <img
+        src="{{ url_for('static', filename='images/nsclc.jpg') }}"
+        alt="NSCLC"
+      />
+      <div class="card-caption">Non-Small Cell Lung Cancer (NSCLC)</div>
+      <div class="card-overlay">
+        Jenis paling sering ditemukan (±85% kasus). Perkembangannya relatif
+        lambat dibandingkan jenis lainnya.
+      </div>
     </div>
 
-    <h3 class="subtitle">Tujuan Website</h3>
-    <p class="paragraph">
-        Website ini dirancang untuk membantu <em>tenaga medis</em> dan peneliti
-        mengidentifikasi jenis kanker paru-paru dari citra medis menggunakan teknologi
-        <strong>Kecerdasan Buatan (AI)</strong>.
-    </p>
-</section>
+    <div class="cancer-card">
+      <img
+        src="{{ url_for('static', filename='images/sclc.jpg') }}"
+        alt="SCLC"
+      />
+      <div class="card-caption">Small Cell Lung Cancer (SCLC)</div>
+      <div class="card-overlay">
+        Lebih agresif, cepat menyebar, dan sangat erat kaitannya dengan
+        kebiasaan merokok.
+      </div>
+    </div>
 
+    <div class="cancer-card">
+      <img
+        src="{{ url_for('static', filename='images/other_cancer.jpg') }}"
+        alt="Jenis Lain"
+      />
+      <div class="card-caption">Jenis Lain</div>
+      <div class="card-overlay">
+        Termasuk kanker paru yang berasal dari penyebaran kanker organ lain
+        (metastasis) maupun kasus langka lainnya.
+      </div>
+    </div>
+  </div>
+
+  <h3 class="subtitle">Tujuan Platform Ini</h3>
+  <p class="paragraph">
+    Website ini dirancang sebagai <em>media pendukung</em> bagi tenaga medis,
+    mahasiswa, dan peneliti untuk mengenali serta mengklasifikasikan jenis
+    kanker paru-paru dari citra medis. Sistem ini memanfaatkan teknologi
+    <strong>Kecerdasan Buatan (AI)</strong> untuk mempercepat analisis dan
+    memberikan informasi awal yang dapat membantu proses diagnosis.
+  </p>
+</section>
 {% endblock %}

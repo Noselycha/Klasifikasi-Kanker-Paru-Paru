@@ -1,179 +1,182 @@
-/* Reset & base styles */
+/* Reset & Base Styles */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    background-color: #f5f8fa;
-    color: #333;
-    line-height: 1.6;
+  font-family: "Poppins", sans-serif; /* Menggunakan font modern */
+  background-color: #f0f2f5; /* Latar belakang abu-abu muda */
+  color: #333;
+  line-height: 1.6;
 }
 
-/* Header styling */
+/* Header */
 header {
-    background: linear-gradient(90deg, #005c97, #363795);
-    color: white;
-    padding: 1rem 2rem;
-    text-align: center;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  background: linear-gradient(
+    90deg,
+    #1a2a6c,
+    #b21f1f,
+    #fdbb2d
+  ); /* Gradien 3 warna */
+  color: white;
+  padding: 1.5rem 2rem;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 header h1 {
-    font-size: 1.8rem;
-    margin-bottom: 0.5rem;
+  font-size: 2.5rem;
+  font-weight: 700;
 }
 
-/* Navigation styling */
-nav {
-    margin-top: 0.5rem;
-}
-
+/* Navigation */
 nav a {
-    color: white;
-    text-decoration: none;
-    margin: 0 1rem;
-    font-weight: 500;
-    position: relative;
-    transition: color 0.3s ease;
+  color: white;
+  text-decoration: none;
+  margin: 0 1rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
 }
 
 nav a:hover {
-    color: #ffd700;
+  color: #f9f9f9;
+  text-decoration: underline;
 }
 
-nav a::after {
-    content: "";
-    display: block;
-    height: 2px;
-    width: 0%;
-    background: #ffd700;
-    transition: width 0.3s ease;
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-}
-
-nav a:hover::after {
-    width: 100%;
-}
-
-/* Main content */
+/* Main Content Section */
 main {
-    max-width: 900px;
-    margin: 2rem auto;
-    padding: 1.5rem;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
 }
 
-/* Footer styling */
-footer {
-    background: #1f1f1f;
-    color: #bbb;
-    text-align: center;
-    padding: 1rem;
-    font-size: 0.9rem;
-    margin-top: 2rem;
+.section-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #1a2a6c;
+  border-bottom: 2px solid #b21f1f; /* Garis bawah yang menonjol */
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
 }
 
-footer p {
-    margin: 0;
+.subtitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: #333;
 }
 
-/* Buttons */
-button, .btn-custom {
-    background: #005c97;
-    color: white;
-    border: none;
-    padding: 0.6rem 1.2rem;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background 0.3s ease;
+.paragraph {
+  font-size: 1rem;
+  text-align: justify;
+  line-height: 1.8;
 }
 
-button:hover, .btn-custom:hover {
-    background: #004579;
-}
-
-/* Responsive design */
-@media (max-width: 768px) {
-    nav a {
-        display: block;
-        margin: 0.5rem 0;
-    }
-    
-    main {
-        margin: 1rem;
-        padding: 1rem;
-    }
-}
-
+/* Cancer Cards */
 .cancer-types {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 30px;
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 2rem;
 }
 
 .cancer-card {
-    position: relative;
-    width: 300px;
-    border-radius: 12px;
-    overflow: hidden;
-    background: #fff;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
+  position: relative;
+  width: 280px;
+  height: 250px; /* Menetapkan tinggi yang sama untuk semua kartu */
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
 }
 
 .cancer-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.7); /* Memberi sedikit filter gelap */
+  transition: filter 0.3s ease;
 }
 
 .card-caption {
-    text-align: center;
-    padding: 10px;
-    background-color: #002b36;
-    color: #8fffbf;
-    font-weight: 500;
-    font-size: 1rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  font-weight: 600;
+  font-size: 1.1rem;
+  z-index: 1;
 }
 
 .card-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 44, 66, 0.9);
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 15px;
-    text-align: center;
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    font-size: 0.95rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(26, 42, 108, 0.9);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  font-size: 0.95rem;
+  font-weight: 300;
 }
 
+/* Hover Effects */
 .cancer-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
 .cancer-card:hover .card-overlay {
-    opacity: 1;
+  opacity: 1;
 }
-.hidden {
-    display: none;
+
+.cancer-card:hover img {
+  filter: brightness(0.5); /* Lebih gelap saat hover */
+}
+
+/* Footer Styling */
+footer {
+  background: #1f1f1f;
+  color: #bbb;
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.9rem;
+  margin-top: 2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .cancer-types {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cancer-card {
+    width: 100%; /* Kartu menjadi lebar penuh di perangkat kecil */
+  }
+
+  main {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
 }
